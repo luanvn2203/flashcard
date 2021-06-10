@@ -6,7 +6,7 @@ import { Switch } from 'react-router';
 
 function Routes() {
 	const routeComponents = Paths.map(({ path, component }) => (
-		<Route exact path={path} component={component} />
+		<Route key={component} exact path={path} component={component} />
 
 	));
 	return (

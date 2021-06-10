@@ -10,7 +10,9 @@ const LoginPage = () => {
 
 	const onFinish = (values) => {
 		setValues(values);
+
 	};
+
 	console.log("Received values of form: ", Values);
 	return (
 		<div className="limiter">

@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import { Button, Form, Input, Radio, Select } from "antd";
 import "antd/dist/antd.css";
-import { Form, Input, Button, Select, Radio } from "antd";
+import React from "react";
 import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	Redirect,
+	Link
 } from "react-router-dom";
-import Images from "../../constants/Images";
 import "../../assets/css/account.css";
-import LoginPage from "../Login/LoginPage";
+import Images from "../../constants/Images";
 
 const RegisterPage = () => {
 	const onFinish = (values) => {
@@ -18,9 +13,18 @@ const RegisterPage = () => {
 	};
 	const [value, setValue] = React.useState(1);
 	const onChange = (e) => {
-		console.log("radio checked", e.target.value);
 		setValue(e.target.value);
 	};
+	const initialValue = {
+		email: '',
+		password: '',
+		fullname: '',
+		phone: '',
+		address: '',
+		dob: '',
+		role: 1,
+		gender: 'male'
+	}
 	return (
 		<div>
 			<div className="limiter">
@@ -33,7 +37,7 @@ const RegisterPage = () => {
 						<Form
 							name="normal_login"
 							className="form-control"
-							initialValues={{ remember: true }}
+							initialValues={initialValue}
 							onFinish={onFinish}
 						>
 							<span className="form-control-title">Register From</span>
@@ -125,20 +129,32 @@ const RegisterPage = () => {
 								/>
 							</Form.Item>
 							<Form.Item name="role" className="form-group">
-								<Select defaultValue="student">
-									<Select.Option value="student">Student</Select.Option>
-									<Select.Option value="donor">Donor</Select.Option>
+								<Select >
+									<Select.Option value={1}>Student</Select.Option>
+									<Select.Option value={2}>Donor</Select.Option>
 								</Select>
 							</Form.Item>
-							<Radio.Group
+							<Form.Item name="gender" label="Radio.Group">
+								<Radio.Group
+									className="form-group"
+									onChange={onChange}
+								>
+									<Radio value="male">Male</Radio>
+									<Radio value="female">Female</Radio>
+									<Radio value="other">Other</Radio>
+								</Radio.Group>
+							</Form.Item>
+							{/* <Radio.Group
 								className="form-group"
 								onChange={onChange}
-								defaultValue={value}
+								name="gender"
+								defaultValue="male"
+
 							>
-								<Radio value={1}>Male</Radio>
-								<Radio value={2}>Female</Radio>
-								<Radio value={3}>Other</Radio>
-							</Radio.Group>
+								<Radio value="male">Male</Radio>
+								<Radio value="female">Female</Radio>
+								<Radio value="other">Other</Radio>
+							</Radio.Group> */}
 							<div name="rule" className="form-group">
 								By clicking you agree with our{" "}
 								<Link className="link-a" to="">

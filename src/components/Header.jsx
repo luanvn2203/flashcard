@@ -4,10 +4,11 @@ import { FaSearch, FaBars } from "react-icons/fa";
 import "../assets/css/header.css";
 import accountApi from "../api/accountApi";
 import { Button } from "antd/lib/radio";
-
+import { Modal } from "antd";
 
 function Header() {
 	const [isActive, setActive] = useState(false);
+	const [isShowModal, setIsShowModal] = useState(false);
 	const handleToggle = () => {
 		setActive(!isActive);
 	};
@@ -25,6 +26,7 @@ function Header() {
 		getAccountFromLocalStorage()
 	}, [isLogin])
 	const handleSignOutClick = async () => {
+		setIsShowModal(false);
 		setIsLogin(false);
 		const accessToken = localStorage.getItem("accessToken")
 		const response = await accountApi.Logout(accessToken);
@@ -33,6 +35,12 @@ function Header() {
 
 		//show thong bao
 		window.history.forward('/login');
+	}
+	const showLogoutModal = () => {
+		setIsShowModal(true)
+	}
+	const hideModal = () => {
+		setIsShowModal(false);
 	}
 	return (
 		<div>
@@ -59,7 +67,7 @@ function Header() {
 									</Link>
 								</li>
 								<li className="nav__item">
-									<Button onClick={handleSignOutClick} >
+									<Button onClick={() => showLogoutModal()} >
 										Sign out
 									</Button>
 								</li>
@@ -82,7 +90,18 @@ function Header() {
 						<FaBars onClick={() => setActive(!isActive)} />
 					</div>
 				</nav>
+				<Modal
+					title="Modal"
+					visible={isShowModal}
+					onOk={handleSignOutClick}
+					onCancel={hideModal}
+					okText="Sign out"
+					cancelText="Cancel"
+				>
+					<p>Do you want to sign out ?</p>
+				</Modal>
 			</header>
+
 		</div>
 	);
 }

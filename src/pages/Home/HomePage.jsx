@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
 import "../../assets/css/home.css";
-import Images from "../../constants/Images";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Images from "../../constants/Images";
 
 function HomePage() {
 	return (

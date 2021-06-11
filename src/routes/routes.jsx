@@ -1,12 +1,11 @@
-import React, { Suspense } from "react";
+import React from "react";
+import { Switch } from 'react-router';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Paths from "../constants/Paths";
-import Loading from "../components/Loading";
-import { Switch } from 'react-router';
 
 function Routes() {
-	const routeComponents = Paths.map(({ path, component }) => (
-		<Route key={component} exact path={path} component={component} />
+	const routeComponents = Paths.map(({ path, exact, component }) => (
+		<Route key={component} exact={exact} path={path} component={component} />
 
 	));
 	return (

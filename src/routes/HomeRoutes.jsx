@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import { PATH } from "../constants/Paths";
 import Loading from "../components/Loading";
+import { PATH } from "../constants/Paths";
 const Home = lazy(() => import("../pages/Home/HomePage"));
 
 function HomeRoutes() {

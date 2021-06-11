@@ -19,7 +19,14 @@ const LoginPage = function () {
 			try {
 				const response = await accountApi.Login(loginValue);
 				console.log(response)
+				if (response.Status === "Success") {
+					localStorage.setItem("accessToken", response.tokens)
+					//set thong bao here
 
+					//////
+					window.history.back();
+				}
+				/// thong bao here
 			} catch (error) {
 				console.log("failed to fetch login", error.message)
 			}

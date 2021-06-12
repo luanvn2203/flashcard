@@ -114,7 +114,7 @@ function HomePage() {
 							<div className="menu__content">
 								<img src="assets/img/plate1.png" alt="" className="menu__img" />
 								<h3 className="menu__name">Languages</h3>
-								<Link className="button menu__button">
+								<Link to="/" className="button menu__button">
 									<i className="bx bx-cart-alt"></i>
 								</Link>
 							</div>
@@ -126,7 +126,7 @@ function HomePage() {
 									className="menu__img"
 								/>
 								<h3 className="menu__name">Math</h3>
-								<Link className="button menu__button">
+								<Link to="/" className="button menu__button">
 									<i className="bx bx-cart-alt"></i>
 								</Link>
 							</div>
@@ -138,7 +138,7 @@ function HomePage() {
 									className="menu__img"
 								/>
 								<h3 className="menu__name">Science</h3>
-								<Link className="button menu__button">
+								<Link to="/" className="button menu__button">
 									<i className="bx bx-cart-alt"></i>
 								</Link>
 							</div>
@@ -150,7 +150,7 @@ function HomePage() {
 									className="menu__img"
 								/>
 								<h3 className="menu__name">IOT</h3>
-								<Link className="button menu__button">
+								<Link to="/" className="button menu__button">
 									<i className="bx bx-cart-alt"></i>
 								</Link>
 							</div>
@@ -162,7 +162,7 @@ function HomePage() {
 									className="menu__img"
 								/>
 								<h3 className="menu__name">Programing</h3>
-								<Link className="button menu__button">
+								<Link to="/" className="button menu__button">
 									<i className="bx bx-cart-alt"></i>
 								</Link>
 							</div>
@@ -174,7 +174,7 @@ function HomePage() {
 									className="menu__img"
 								/>
 								<h3 className="menu__name">Design</h3>
-								<Link className="button menu__button">
+								<Link to="/" className="button menu__button">
 									<i className="bx bx-cart-alt"></i>
 								</Link>
 							</div>
@@ -191,14 +191,14 @@ function HomePage() {
 									Flashcard, make quiz and share together.
 								</p>
 								<div className="app__stores">
-									<Link>
+									<Link to="/">
 										<img
 											src={Images.ANDROID_PIC}
 											alt="Home-9"
 											className="app__store"
 										/>
 									</Link>
-									<Link>
+									<Link to="/">
 										<img
 											src={Images.IPHONE_PIC}
 											alt="Home-10"
@@ -226,7 +226,7 @@ function HomePage() {
 							</div>
 
 							<div className="contact__button">
-								<Link className="button">Contact us now</Link>
+								<Link to="/" className="button">Contact us now</Link>
 							</div>
 						</div>
 					</section>

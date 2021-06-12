@@ -16,7 +16,6 @@ function LoginForm(props) {
 
     const handleSubmit = (values) => {
         setValues(values);
-        console.log(!onSubmit)
         if (!onSubmit) return;
         const formValue = {
             email: values.email,
@@ -32,7 +31,7 @@ function LoginForm(props) {
             onFinish={handleSubmit}
         >
 
-            <span className="form-control-title">Login From</span>
+            <span className="form-control-title">FC login</span>
             <Form.Item
                 name="email"
                 className="form-group"

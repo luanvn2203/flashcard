@@ -1,12 +1,12 @@
 import "antd/dist/antd.css";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import accountApi from "../../api/accountApi";
 import "../../assets/css/account.css";
 import LoginForm from "../../components/LoginForm";
 import Images from "../../constants/Images";
 import axios from "axios"
 const LoginPage = function () {
-	const [loginValue, setLoginValue] = useState({})
+	const [loginValue, setLoginValue] = useState(null)
 	//////
 
 	//////	
@@ -15,6 +15,9 @@ const LoginPage = function () {
 	}
 
 	useEffect(() => {
+		console.log(loginValue)
+		if (loginValue === null) return
+
 		const fetchLogin = async () => {
 			try {
 				const response = await accountApi.Login(loginValue);
@@ -32,6 +35,8 @@ const LoginPage = function () {
 			}
 		}
 		fetchLogin();
+
+		return
 	}, [loginValue])
 
 	return (
